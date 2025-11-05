@@ -8,13 +8,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { formatIDR } from "@/lib/formatIDR";
-import { TypeServices } from "@/types/services";
 
-interface IServicesTable {
-  dataServices: TypeServices[];
-}
-
-const ServicesTable = ({ dataServices }: IServicesTable) => (
+const ServicesTable = () => (
   <Card className="mx-6">
     <Table>
       <TableHeader>

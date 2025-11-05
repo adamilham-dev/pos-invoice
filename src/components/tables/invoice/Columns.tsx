@@ -18,6 +18,7 @@ import { TypeInvoice } from "@/types/invoice";
 import { ColumnDef } from "@tanstack/react-table";
 import { Eye, FileText, MoreHorizontalIcon, Pen, XCircle } from "lucide-react";
 import Link from "next/link";
+import { useOpenPdf } from "@/hooks/use-openPdf";
 
 export const columnsInvoice: ColumnDef<TypeInvoice>[] = [
   {
@@ -85,7 +86,7 @@ export const columnsInvoice: ColumnDef<TypeInvoice>[] = [
                   Lihat detail
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={useOpenPdf}>
                 <FileText />
                 Lihat PDF
               </DropdownMenuItem>

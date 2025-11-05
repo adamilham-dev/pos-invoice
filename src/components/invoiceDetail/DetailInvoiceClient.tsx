@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
 import PageHeader3 from "@/components/layout/PageHeader3";
 import { Button } from "@/components/ui/button";
@@ -23,8 +23,6 @@ import SignatureStatusCard from "./SignatureStatusCard";
 import RecentActivity from "./RecentActivity";
 import ServicesTable from "./ServicesTable";
 import { pdf } from "@react-pdf/renderer";
-import { getDataServices } from "@/data/services";
-import { TypeServices } from "@/types/services";
 
 const PDFViewer = dynamic(
   () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
@@ -40,21 +38,12 @@ interface IDetailInvoice {
 
 const DetailInvoice = ({ invoice }: IDetailInvoice) => {
   const [showPdf, setShowPdf] = useState(false);
-  const [dataServices, setDataServices] = useState<TypeServices[]>();
 
   const handleOpenPdf = async () => {
     const blob = await pdf(<InvoicePDFTemplate />).toBlob();
     const url = URL.createObjectURL(blob);
     window.open(url, "_blank");
   };
-
-  useEffect(() => {
-    async function fetchData() {
-      const servicesData = await getDataServices();
-      setDataServices(servicesData);
-    }
-    fetchData();
-  }, []);
 
   return (
     <div className="flex flex-col gap-6">
@@ -105,7 +94,7 @@ const DetailInvoice = ({ invoice }: IDetailInvoice) => {
 
       <CustomerInfoCard />
 
-      <ServicesTable dataServices={dataServices ?? []} />
+      <ServicesTable />
 
       <div className="grid grid-cols-2 items-start mx-6 gap-5">
         <PaymentDetailsCard />
