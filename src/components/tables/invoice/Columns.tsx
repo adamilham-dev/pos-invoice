@@ -19,6 +19,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { Eye, FileText, MoreHorizontalIcon, Pen, XCircle } from "lucide-react";
 import Link from "next/link";
 import { useOpenPdf } from "@/hooks/use-openPdf";
+import DialogRejectInvoice from "@/components/dialog/DialogRejectInvoice";
 
 export const columnsInvoice: ColumnDef<TypeInvoice>[] = [
   {
@@ -91,6 +92,7 @@ export const columnsInvoice: ColumnDef<TypeInvoice>[] = [
                 Lihat PDF
               </DropdownMenuItem>
               <DialogAcceptInvoice />
+              <DialogRejectInvoice />
               <DialogSendEmail />
               <DropdownMenuItem>
                 <Pen />

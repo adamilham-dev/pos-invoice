@@ -9,6 +9,7 @@ import { Button } from "../ui/button";
 import { AtSign, FileText, XIcon } from "lucide-react";
 import { useState } from "react";
 import { DropdownMenuItem } from "../ui/dropdown-menu";
+import { useOpenPdf } from "@/hooks/use-openPdf";
 
 const DialogSendEmail = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -41,7 +42,7 @@ const DialogSendEmail = () => {
                 <p className="body-small-reguler">No. Invoice</p>
                 <p className="body-large-bold">09289/KCUBD/102025</p>
               </div>
-              <Button variant={"outline"}>
+              <Button variant={"outline"} onClick={useOpenPdf}>
                 <FileText /> Lihat PDF
               </Button>
             </div>
