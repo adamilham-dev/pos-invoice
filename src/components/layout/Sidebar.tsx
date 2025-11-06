@@ -18,7 +18,7 @@ const mainMenu: MenuItem[] = [
 ];
 
 const secondaryMenu: MenuItem[] = [
-  { label: "Settings", icon: Settings, href: "/settings" },
+  { label: "Settings", icon: Settings, href: "/profile" },
   { label: "Keluar", icon: LogOut, href: "/logout" },
 ];
 
