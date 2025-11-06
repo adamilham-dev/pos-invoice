@@ -12,6 +12,7 @@ import { DropdownMenuItem } from "../ui/dropdown-menu";
 import { useOpenPdf } from "@/hooks/use-openPdf";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
+import { Textarea } from "../ui/textarea";
 
 const DialogRejectInvoice = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -86,6 +87,11 @@ const DialogRejectInvoice = () => {
                   </div>
                 </div>
               </RadioGroup>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <Label>Alasan penolakan</Label>
+              <Textarea placeholder="Alasan"></Textarea>
             </div>
 
             <div className="flex flex-col w-full gap-3">

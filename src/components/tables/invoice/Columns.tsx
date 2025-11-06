@@ -20,6 +20,7 @@ import { Eye, FileText, MoreHorizontalIcon, Pen, XCircle } from "lucide-react";
 import Link from "next/link";
 import { useOpenPdf } from "@/hooks/use-openPdf";
 import DialogRejectInvoice from "@/components/dialog/DialogRejectInvoice";
+import DialogRightRecordPayment from "@/components/dialog/DialogRightRecordPayment";
 
 export const columnsInvoice: ColumnDef<TypeInvoice>[] = [
   {
@@ -94,6 +95,7 @@ export const columnsInvoice: ColumnDef<TypeInvoice>[] = [
               <DialogAcceptInvoice />
               <DialogRejectInvoice />
               <DialogSendEmail />
+              <DialogRightRecordPayment />
               <DropdownMenuItem>
                 <Pen />
                 Ubah
