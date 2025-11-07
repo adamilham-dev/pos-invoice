@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 const InvoiceDetailsForm = () => {
   return (
     <Card className="m-6 p-6">
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         <div className="flex flex-col gap-2">
           <Label>No. Invoice</Label>
           <InputGroup>

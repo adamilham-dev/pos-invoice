@@ -45,14 +45,14 @@ export default function CustomerSearch() {
       <p className="body-large-bold">Customer</p>
 
       {selectedCustomer ? (
-        <div className="flex items-center justify-between">
+        <div className="flex flex-row md:items-center justify-between">
           <div className="flex flex-col gap-1">
             <p className="body-small-reguler text-neutral-100">
               {selectedCustomer.name}
             </p>
-            <div className="flex items-center gap-2 caption-large-reguler text-neutral-80">
+            <div className="flex flex-col md:flex-row md:items-center md:gap-2 caption-large-reguler text-neutral-80">
               <p>(62) {selectedCustomer.noTlp}</p>
-              <p>•</p>
+              <p className="hidden md:block">•</p>
               <p>{selectedCustomer.email}</p>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function CustomerSearch() {
           </div>
         </div>
       ) : (
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col md:flex-row items-center gap-2">
           <div className="relative w-full">
             <Input
               type="text"

@@ -57,7 +57,7 @@ const InvoiceCreate = () => {
         </Button>
       </Card>
 
-      <div className="grid grid-cols-2 items-start gap-5 m-6">
+      <div className="grid md:grid-cols-2 items-start gap-5 m-6">
         <PaymentInfo />
         <InvoiceSummary data={data ?? []} />
       </div>
