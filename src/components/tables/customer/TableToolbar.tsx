@@ -12,7 +12,7 @@ interface ITableToolbar<TData> {
 
 export function TableToolbarCustomer<TData>({ table }: ITableToolbar<TData>) {
   return (
-    <InputGroup className="w-1/2">
+    <InputGroup className="w-2/3">
       <InputGroupInput
         placeholder="Cari berdasarkan nama customer, no. telp, email, alamat... "
         value={(table.getState().globalFilter as string) ?? ""}

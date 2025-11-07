@@ -25,14 +25,14 @@ const CustomerPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-5 pl-9 pr-10 py-6">
+    <div className="flex flex-col gap-5 m-6 md:pl-9 md:pr-10 md:py-6">
       <PageHeader title="Customer">
         <Button onClick={openCustomerDialog}>
           <Plus /> Tambah customer
         </Button>
       </PageHeader>
 
-      <Card className="p-6">
+      <Card className="p-4 md:p-6">
         <DataTable columns={columnsCustomer} data={data} />
       </Card>
 
