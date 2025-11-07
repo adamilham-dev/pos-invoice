@@ -1,19 +1,15 @@
 import { create } from "zustand";
 
-interface AcceptInvoiceDialogState {
-  isAcceptDialogOpen: boolean;
-  invoiceId: string | null;
-  openAcceptDialog: (invoiceId: string) => void;
-  closeAcceptDialog: () => void;
+interface AccepetInvoiceDialogState {
+  isAccepetInvoiceDialogOpen: boolean;
+  openAccepetInvoiceDialog: () => void;
+  closeAccepetInvoiceDialog: () => void;
 }
 
-export const useAcceptInvoiceDialogStore = create<AcceptInvoiceDialogState>(
+export const useAccepetInvoiceDialogStore = create<AccepetInvoiceDialogState>(
   (set) => ({
-    isAcceptDialogOpen: false,
-    invoiceId: null,
-    openAcceptDialog: (invoiceId) =>
-      set({ isAcceptDialogOpen: true, invoiceId }),
-    closeAcceptDialog: () =>
-      set({ isAcceptDialogOpen: false, invoiceId: null }),
+    isAccepetInvoiceDialogOpen: false,
+    openAccepetInvoiceDialog: () => set({ isAccepetInvoiceDialogOpen: true }),
+    closeAccepetInvoiceDialog: () => set({ isAccepetInvoiceDialogOpen: false }),
   })
 );

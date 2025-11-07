@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { CircleCheck, Eye, TriangleAlert, XIcon } from "lucide-react";
-import { useState } from "react";
 import { DropdownMenuItem } from "../ui/dropdown-menu";
 import Image from "next/image";
 import {
@@ -15,22 +14,33 @@ import {
   InputGroupAddon,
   InputGroupInput,
 } from "../ui/input-group";
+import { useAccepetInvoiceDialogStore } from "@/stores/acceptInvoiceDialogStore";
+import { useSignatureDialogStore } from "@/stores/signatueDialog";
+import DialogSignature from "@/components/dialog/DialogSignature";
 
 const DialogAcceptInvoice = () => {
-  const [openDialog, setOpenDialog] = useState(false);
+  const {
+    openAccepetInvoiceDialog,
+    isAccepetInvoiceDialogOpen,
+    closeAccepetInvoiceDialog,
+  } = useAccepetInvoiceDialogStore();
+  const { openSignatureDialog } = useSignatureDialogStore();
 
   return (
     <>
       <DropdownMenuItem
         onSelect={(e) => e.preventDefault()}
-        onClick={() => setOpenDialog(true)}
+        onClick={openAccepetInvoiceDialog}
         className="cursor-pointer"
       >
         <CircleCheck fill="black" color="white" />
         Setujui Invoice
       </DropdownMenuItem>
 
-      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+      <Dialog
+        open={isAccepetInvoiceDialogOpen}
+        onOpenChange={closeAccepetInvoiceDialog}
+      >
         <DialogContent className="max-w-lg">
           <DialogHeader className="flex-row items-center justify-between">
             <DialogTitle>Setujui Invoice</DialogTitle>
@@ -76,14 +86,16 @@ const DialogAcceptInvoice = () => {
               </div>
             </div>
             <div className="flex flex-col w-full gap-3">
-              <Button>Setujui invoice</Button>
-              <Button onClick={() => setOpenDialog(false)} variant="outline">
+              <Button onClick={openSignatureDialog}>Setujui invoice</Button>
+              <Button onClick={openSignatureDialog} variant="outline">
                 Batal
               </Button>
             </div>
           </div>
         </DialogContent>
       </Dialog>
+
+      <DialogSignature />
     </>
   );
 };
