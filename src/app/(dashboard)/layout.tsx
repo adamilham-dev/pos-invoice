@@ -1,17 +1,35 @@
+"use client";
+
 import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
+import { useState } from "react";
+import clsx from "clsx";
 
 export default function DashboardLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <div className="flex flex-col h-screen">
-      <Navbar />
+      <Navbar onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} />
 
       <div className="flex flex-1 overflow-hidden">
-        <aside className="w-[280px] px-4 bg-neutral-30 overflow-y-auto">
+        <div
+          className={clsx(
+            "fixed inset-0 z-40 bg-black/50 transition-opacity lg:hidden",
+            isSidebarOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          )}
+          onClick={() => setIsSidebarOpen(false)}
+        ></div>
+        <aside
+          className={clsx(
+            "fixed lg:relative inset-y-0 left-0 z-50 w-[280px] px-4 bg-neutral-30 overflow-y-auto transition-transform duration-300 ease-in-out lg:translate-x-0",
+            isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          )}
+        >
           <Sidebar />
         </aside>
 

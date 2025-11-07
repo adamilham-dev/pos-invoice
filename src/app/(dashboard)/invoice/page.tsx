@@ -57,7 +57,7 @@ export default function InvoicePage() {
   );
 
   return (
-    <div className="flex flex-col gap-5 pl-9 pr-10 py-6">
+    <div className="flex flex-col gap-5 p-4 sm:p-6 lg:pl-9 lg:pr-10 lg:py-6">
       <PageHeader title="Invoice">
         <Button variant={"secondary"}>
           <Settings /> Pengaturan dokumen
@@ -69,7 +69,7 @@ export default function InvoicePage() {
         </Link>
       </PageHeader>
 
-      <div className="grid grid-cols-2 items-center gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4 md:gap-10">
         <Card className="gap-2">
           <CardHeader className="body-small-reguler">
             Total Nilai Invoice

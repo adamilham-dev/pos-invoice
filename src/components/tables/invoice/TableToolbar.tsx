@@ -21,8 +21,8 @@ interface ITableToolbar<TData> {
 
 export function TableToolbarInvoice<TData>({ table }: ITableToolbar<TData>) {
   return (
-    <div className="flex items-center gap-4 p-4">
-      <InputGroup>
+    <div className="flex items-center gap-4 p-4 overflow-x-auto">
+      <InputGroup className="min-w-52 md:w-full">
         <InputGroupInput
           placeholder="Cari berdasarkan transaksi, customer, no. invoice..."
           value={(table.getState().globalFilter as string) ?? ""}
