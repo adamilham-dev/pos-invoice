@@ -14,7 +14,7 @@ const PageHeader2 = ({ title, children }: IPageHeader2) => {
   const router = useRouter();
 
   return (
-    <div className="flex items-center justify-between bg-neutral-10 p-4">
+    <div className="flex items-center overflow-x-auto md:justify-between bg-neutral-10 p-4">
       <div onClick={() => router.back()} className="flex items-center gap-2">
         <Button variant={"outline"}>
           <ArrowLeft />

@@ -46,7 +46,7 @@ const DetailInvoice = ({ invoice }: IDetailInvoice) => {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 pb-6">
       <PageHeader3 title={invoice.invoice} status={invoice.statusInvoice}>
         <Dialog open={showPdf} onOpenChange={setShowPdf}>
           <DialogTrigger asChild>
@@ -74,13 +74,7 @@ const DetailInvoice = ({ invoice }: IDetailInvoice) => {
 
             <div className="flex-1 overflow-hidden">
               <PDFViewer className="w-full h-full border-0">
-                <InvoicePDFTemplate
-                // invoice={invoice.invoice}
-                // statusInvoice={invoice.statusInvoice}
-                // customer={invoice.customer}
-                // totalAmount={invoice.totalAmount}
-                // createdAt={invoice.createdAt}
-                />
+                <InvoicePDFTemplate />
               </PDFViewer>
             </div>
           </DialogContent>
@@ -96,7 +90,7 @@ const DetailInvoice = ({ invoice }: IDetailInvoice) => {
 
       <ServicesTable />
 
-      <div className="grid grid-cols-2 items-start mx-6 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-5 px-4 md:px-6">
         <PaymentDetailsCard />
         <div className="flex flex-col gap-6">
           <InvoiceSummaryCard />

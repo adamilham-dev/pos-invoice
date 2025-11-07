@@ -2,10 +2,10 @@ import { Banknote, FileCheck, FileText, Send } from "lucide-react";
 import { Card, CardTitle } from "../ui/card";
 
 const RecentActivity = () => (
-  <div className="mx-6 mt-6 mb-10 flex flex-col gap-4">
+  <div className="mx-4 md:mx-6 mt-6 flex flex-col gap-4">
     <p className="body-large-bold text-neutral-100">Aktivitas Terbaru</p>
     <div className="flex gap-2">
-      <FileText />
+      <FileText size={20} />
       <div>
         <p className="body-small-reguler text-neutral-100">
           Invoice 09289/KCUBD/102025 berhasil dibuat oleh Fadhil Ibrahim (Admin)
@@ -16,7 +16,7 @@ const RecentActivity = () => (
       </div>
     </div>
     <div className="flex gap-2">
-      <FileCheck />
+      <FileCheck size={20} />
       <div>
         <p className="body-small-reguler text-neutral-100">
           Invoice 09289/KCUBD/102025 ditandatangani oleh Ajeng Narulita (Manajer
@@ -28,7 +28,7 @@ const RecentActivity = () => (
       </div>
     </div>
     <div className="flex gap-2">
-      <FileText />
+      <FileText size={20} />
       <div>
         <p className="body-small-reguler text-neutral-100">
           Invoice 09289/KCUBD/102025 sudah ditandai terkirim ke customer oleh
@@ -40,7 +40,7 @@ const RecentActivity = () => (
       </div>
     </div>
     <div className="flex gap-2">
-      <Banknote />
+      <Banknote size={20} />
       <div>
         <p className="body-small-reguler text-neutral-100">
           Tagihan invoice 09289/KCUBD/102025 ditandai sudah dibayar sebagian
@@ -52,7 +52,7 @@ const RecentActivity = () => (
       </div>
     </div>
     <div className="flex gap-2">
-      <Send />
+      <Send size={20} />
       <div>
         <p className="body-small-reguler text-neutral-100">
           Invoice 09289/KCUBD/102025 dikirim ke customer via email oleh Fadhil
