@@ -82,7 +82,7 @@ export default function InvoiceTabs({
         ))}
       </div>
 
-      <div className="flex items-center border-r-2">
+      <div className="flex items-center border-r border-neutral-30 h-full">
         <Button
           onClick={() => scrollByOffset(-150)}
           aria-label="Previous Tabs"
@@ -102,9 +102,12 @@ export default function InvoiceTabs({
       </div>
 
       <Select>
-        <SelectTrigger className="bg-transparent border-0 shadow-none hover:bg-transparent">
+        <SelectTrigger className="bg-transparent border-0 shadow-none h-full hover:bg-transparent">
           <MapPin fill="black" color="white" size={20} />
-          <SelectValue placeholder="KCU Bandung" />
+          <SelectValue
+            placeholder="KCU Bandung"
+            className="body-small-medium"
+          />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
