@@ -13,7 +13,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Table } from "@tanstack/react-table";
-import { ArrowUpDown, Plus, SearchIcon, SlidersHorizontal } from "lucide-react";
+import {
+  ArrowUpDown,
+  Download,
+  SearchIcon,
+  SlidersHorizontal,
+} from "lucide-react";
 
 interface ITableToolbar<TData> {
   table: Table<TData>;
@@ -56,7 +61,7 @@ export function TableToolbarInvoice<TData>({ table }: ITableToolbar<TData>) {
         Sort
       </Button>
       <Button variant={"outline"}>
-        <Plus />
+        <Download />
         Export
       </Button>
     </div>
