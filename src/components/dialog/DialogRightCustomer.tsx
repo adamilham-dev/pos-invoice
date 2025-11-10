@@ -47,12 +47,12 @@ const DialogRightCustomer = () => {
               <Label>No Telepon</Label>
               <div className="flex items-center gap-2">
                 <Select>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="">
                     <SelectValue placeholder="+62" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectItem value="+63">+63</SelectItem>
+                      <SelectItem value="+62">+62</SelectItem>
                       <SelectItem value="+64">+64</SelectItem>
                     </SelectGroup>
                   </SelectContent>
@@ -93,8 +93,8 @@ const DialogRightCustomer = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectItem value="Indonesia">Indonesia</SelectItem>
-                      <SelectItem value="Malaysia">Malaysia</SelectItem>
+                      <SelectItem value="Jawa Tengah">Jawa Tengah</SelectItem>
+                      <SelectItem value="Jawa Barat">Jawa Barat</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -107,8 +107,8 @@ const DialogRightCustomer = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectItem value="Indonesia">Indonesia</SelectItem>
-                      <SelectItem value="Malaysia">Malaysia</SelectItem>
+                      <SelectItem value="Semarang">Semarang</SelectItem>
+                      <SelectItem value="Bandung">Bandung</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
@@ -121,25 +121,17 @@ const DialogRightCustomer = () => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectItem value="Indonesia">Indonesia</SelectItem>
-                      <SelectItem value="Malaysia">Malaysia</SelectItem>
+                      <SelectItem value="Semaran Barat">
+                        Semaran Barat
+                      </SelectItem>
+                      <SelectItem value="Antapani">Antapani</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
               </div>
               <div className="flex flex-col gap-2">
                 <Label>Kode Pos</Label>
-                <Select>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Masukan Kode Pos" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectGroup>
-                      <SelectItem value="Indonesia">Indonesia</SelectItem>
-                      <SelectItem value="Malaysia">Malaysia</SelectItem>
-                    </SelectGroup>
-                  </SelectContent>
-                </Select>
+                <Input type="text" placeholder="kode pos" />
               </div>
             </div>
           </div>
