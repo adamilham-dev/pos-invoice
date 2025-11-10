@@ -10,6 +10,8 @@ interface IInvoiceSummary {
 }
 
 const InvoiceSummary = ({ data }: IInvoiceSummary) => {
+  console.log("Data", data);
+
   return (
     <Card className="p-5 flex flex-col gap-5 bg-success-surface border border-success-border">
       <div className="flex flex-col gap-1">
@@ -38,7 +40,7 @@ const InvoiceSummary = ({ data }: IInvoiceSummary) => {
           {data.length ? formatIDR(data[0]?.harga) : "Rp 0"}
         </p>
       </div>
-      {data.length && (
+      {data.length !== 0 && (
         <>
           <div className="flex flex-col gap-2">
             <Label>Jumlah yang Sudah Dibayar</Label>

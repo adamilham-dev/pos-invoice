@@ -6,8 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { getDataRekening } from "@/data/rekening";
 import { TypeRekening } from "@/types/rekening";
-import { Pen, PlusCircle, Trash2 } from "lucide-react";
+import { Pen, PlusCircle } from "lucide-react";
 import { useEffect, useState } from "react";
+import { DeleteIcon } from "../icon/DeleteIcon";
 
 const PaymentInfo = () => {
   const [data, setData] = useState<TypeRekening[]>([]);
@@ -58,14 +59,11 @@ const PaymentInfo = () => {
               <div className="flex items-center gap-4">
                 <Pen
                   size={20}
+                  fill="black"
                   className="cursor-pointer"
                   onClick={() => setSelectedRekening(null)}
                 />
-                <Trash2
-                  size={20}
-                  className="cursor-pointer"
-                  onClick={handleDelete}
-                />
+                <DeleteIcon className="cursor-pointer" onClick={handleDelete} />
               </div>
             </div>
             <div className="flex flex-col gap-1 caption-large-reguler text-neutral-80">

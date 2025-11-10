@@ -9,10 +9,11 @@ import {
 import { formatIDR } from "@/lib/formatIDR";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Pen, PlusCircle, Trash2 } from "lucide-react";
+import { Pen, PlusCircle } from "lucide-react";
 import { TypeServices } from "@/types/services";
 import DialogRightService from "@/components/dialog/DialogRightService";
 import { useServiceDialogStore } from "@/stores/serviceDialogStore";
+import { DeleteIcon } from "@/components/icon/DeleteIcon";
 
 interface ITableServices {
   handleDelete: (layanan: string) => void;
@@ -55,11 +56,10 @@ const TableServices = ({ handleDelete, data }: ITableServices) => {
                 <TableCell>{formatIDR(invoice.harga)}</TableCell>
                 <TableCell>
                   <div className="flex items-center gap-4">
-                    <Pen size={20} className="cursor-pointer" />
-                    <Trash2
+                    <Pen size={20} fill="black" className="cursor-pointer" />
+                    <DeleteIcon
+                      className="cursor-pointer transition-colors"
                       onClick={() => handleDelete(invoice.layanan)}
-                      size={20}
-                      className="cursor-pointer"
                     />
                   </div>
                 </TableCell>

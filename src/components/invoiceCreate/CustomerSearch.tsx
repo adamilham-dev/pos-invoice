@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { PlusCircle, Pen, Trash2 } from "lucide-react";
+import { PlusCircle, Pen } from "lucide-react";
 import { TypeCustomer } from "@/types/customer";
 import { getDataCustomer } from "@/data/customer";
 import { useCustomerDialogStore } from "@/stores/customerDialogStore";
+import { DeleteIcon } from "../icon/DeleteIcon";
 
 export default function CustomerSearch() {
   const [data, setData] = useState<TypeCustomer[]>([]);
@@ -60,12 +61,12 @@ export default function CustomerSearch() {
           <div className="flex items-center gap-4">
             <Pen
               size={20}
+              fill="black"
               className="cursor-pointer hover:text-primary transition-colors"
               onClick={() => setSelectedCustomer(null)}
             />
-            <Trash2
-              size={20}
-              className="cursor-pointer hover:text-red-500 transition-colors"
+            <DeleteIcon
+              className="cursor-pointer transition-colors"
               onClick={handleDelete}
             />
           </div>
