@@ -1,6 +1,7 @@
+import { DeleteIcon } from "@/components/icon/DeleteIcon";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, Pen, Trash } from "lucide-react";
+import { CheckCircle2, Pen } from "lucide-react";
 
 const page = () => {
   return (
@@ -70,8 +71,8 @@ const page = () => {
                   <div className="w-[100px] h-[100px] rounded-2xl border shadow"></div>
                 </div>
                 <div className="flex items-center gap-2 w-full sm:w-auto justify-end sm:justify-start">
-                  <Pen size={20} />
-                  <Trash size={20} />
+                  <Pen size={20} fill="black" />
+                  <DeleteIcon />
                 </div>
               </div>
             </div>

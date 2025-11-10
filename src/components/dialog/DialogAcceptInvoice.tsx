@@ -6,7 +6,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
-import { CircleCheck, Eye, TriangleAlert, XIcon } from "lucide-react";
+import { CircleCheck, Eye, EyeOff, TriangleAlert, XIcon } from "lucide-react";
 import { DropdownMenuItem } from "../ui/dropdown-menu";
 import Image from "next/image";
 import {
@@ -17,6 +17,7 @@ import {
 import { useAccepetInvoiceDialogStore } from "@/stores/acceptInvoiceDialogStore";
 import { useSignatureDialogStore } from "@/stores/signatueDialog";
 import DialogSignature from "@/components/dialog/DialogSignature";
+import { useState } from "react";
 
 const DialogAcceptInvoice = () => {
   const {
@@ -25,6 +26,7 @@ const DialogAcceptInvoice = () => {
     closeAccepetInvoiceDialog,
   } = useAccepetInvoiceDialogStore();
   const { openSignatureDialog } = useSignatureDialogStore();
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <>
@@ -72,9 +74,16 @@ const DialogAcceptInvoice = () => {
               09289/KCUBD/102025
             </p>
             <InputGroup>
-              <InputGroupInput placeholder="Paswword" />
-              <InputGroupAddon align="inline-end">
-                <Eye />
+              <InputGroupInput
+                type={showPassword ? "password" : "text"}
+                placeholder="Password"
+              />
+              <InputGroupAddon
+                onClick={() => setShowPassword(!showPassword)}
+                align="inline-end"
+                className="cursor-pointer"
+              >
+                {showPassword ? <EyeOff /> : <Eye />}
               </InputGroupAddon>
             </InputGroup>
             <div className="bg-warning-surface border border-warning-border rounded p-4 flex items-start gap-3">

@@ -49,12 +49,10 @@ const DialogRightService = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectItem value="2025">2025</SelectItem>
-                    <SelectItem value="2024">2024</SelectItem>
-                    <SelectItem value="2023">2023</SelectItem>
-                    <SelectItem value="2022">2022</SelectItem>
-                    <SelectItem value="2021">2021</SelectItem>
-                    <SelectItem value="2020">2020</SelectItem>
+                    <SelectItem value="Dokumen/Barang">
+                      Dokumen/Barang
+                    </SelectItem>
+                    <SelectItem value="Makanan">Makanan</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -71,6 +69,9 @@ const DialogRightService = () => {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
+                          <SelectItem value="Dengan Pajak">
+                            Dengan Pajak
+                          </SelectItem>
                           <SelectItem value="Tanpa Pajak">
                             Tanpa Pajak
                           </SelectItem>
@@ -109,7 +110,8 @@ const DialogRightService = () => {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
-                          <SelectItem value="Rp">Rp</SelectItem>
+                          <SelectItem value="%">%</SelectItem>
+                          <SelectItem value="Nominal">Nominal</SelectItem>
                         </SelectGroup>
                       </SelectContent>
                     </Select>

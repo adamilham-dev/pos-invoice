@@ -1,9 +1,10 @@
 "use client";
 
+import { DeleteIcon } from "@/components/icon/DeleteIcon";
 import { Button } from "@/components/ui/button";
 import { TypeCustomer } from "@/types/customer";
 import { ColumnDef } from "@tanstack/react-table";
-import { Pen, Trash } from "lucide-react";
+import { Pen } from "lucide-react";
 
 export const columnsCustomer: ColumnDef<TypeCustomer>[] = [
   {
@@ -51,10 +52,10 @@ export const columnsCustomer: ColumnDef<TypeCustomer>[] = [
       return (
         <div className="flex items-center gap-3">
           <Button variant={"outline"}>
-            <Pen />
+            <Pen fill="black" />
           </Button>
           <Button variant={"outline"}>
-            <Trash />
+            <DeleteIcon />
           </Button>
         </div>
       );
