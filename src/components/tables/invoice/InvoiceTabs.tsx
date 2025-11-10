@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ArrowLeft, ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -19,6 +19,9 @@ const tabs = [
   { key: "revision", label: "Need Revision" },
   { key: "open", label: "Open" },
   { key: "sent", label: "Sent to Customer" },
+  { key: "partially", label: "Partially Paid" },
+  { key: "paid", label: "Paid" },
+  { key: "cancel", label: "Cancelled" },
 ];
 
 interface InvoiceTabsProps {
