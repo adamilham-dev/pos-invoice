@@ -10,12 +10,17 @@ import { getDataCustomer } from "@/data/customer";
 import { useCustomerDialogStore } from "@/stores/customerDialogStore";
 import { DeleteIcon } from "../icon/DeleteIcon";
 
-export default function CustomerSearch() {
+interface CustomerSearchProps {
+  value: string;
+  onCustomerSelect: (customerName: string) => void;
+}
+
+export default function CustomerSearch({
+  value,
+  onCustomerSelect,
+}: CustomerSearchProps) {
   const [data, setData] = useState<TypeCustomer[]>([]);
   const [searchCustomer, setSearchCustomer] = useState("");
-  const [selectedCustomer, setSelectedCustomer] = useState<TypeCustomer | null>(
-    null
-  );
   const { openCustomerDialog } = useCustomerDialogStore();
 
   useEffect(() => {
@@ -26,19 +31,21 @@ export default function CustomerSearch() {
     fetchData();
   }, []);
 
+  const selectedCustomer = data.find((c) => c.name === value) || null;
+
   const filteredCustomers = data.filter((customer) =>
     customer.name.toLowerCase().includes(searchCustomer.toLowerCase())
   );
 
   const showDropdownCustomer = searchCustomer.trim().length > 0;
 
-  const handleSelect = (customer: TypeCustomer) => {
-    setSelectedCustomer(customer);
+  const handleSelect = (customerName: string) => {
+    onCustomerSelect(customerName);
     setSearchCustomer("");
   };
 
   const handleDelete = () => {
-    setSelectedCustomer(null);
+    onCustomerSelect("");
   };
 
   return (
@@ -63,7 +70,7 @@ export default function CustomerSearch() {
               size={20}
               fill="black"
               className="cursor-pointer hover:text-primary transition-colors"
-              onClick={() => setSelectedCustomer(null)}
+              onClick={() => onCustomerSelect("")}
             />
             <DeleteIcon
               className="cursor-pointer transition-colors"
@@ -90,7 +97,7 @@ export default function CustomerSearch() {
                       <li
                         key={index}
                         className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
-                        onClick={() => handleSelect(customer)}
+                        onClick={() => handleSelect(customer.name)}
                       >
                         {customer.name}
                       </li>

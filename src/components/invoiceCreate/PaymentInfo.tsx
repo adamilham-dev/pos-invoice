@@ -10,12 +10,14 @@ import { Pen, PlusCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { DeleteIcon } from "../icon/DeleteIcon";
 
-const PaymentInfo = () => {
+interface PaymentInfoProps {
+  value: string;
+  onRekeningChange: (rekening: string) => void;
+}
+
+const PaymentInfo = ({ value, onRekeningChange }: PaymentInfoProps) => {
   const [data, setData] = useState<TypeRekening[]>([]);
   const [searchRekening, setSearchRekening] = useState("");
-  const [selectedRekening, setSelectedRekening] = useState<TypeRekening | null>(
-    null
-  );
 
   useEffect(() => {
     async function fetchData() {
@@ -25,19 +27,21 @@ const PaymentInfo = () => {
     fetchData();
   }, []);
 
+  const selectedRekening = data.find((r) => r.nomorRekening === value) || null;
+
   const filteredRekening = data.filter((rekening) =>
     rekening.bank.toLowerCase().includes(searchRekening.toLowerCase())
   );
 
   const showDropdownRekening = searchRekening.trim().length > 0;
 
-  const handleSelect = (rekening: TypeRekening) => {
-    setSelectedRekening(rekening);
+  const handleSelect = (rekening: TypeRekening | null) => {
+    onRekeningChange(rekening ? rekening.nomorRekening : "");
     setSearchRekening("");
   };
 
   const handleDelete = () => {
-    setSelectedRekening(null);
+    handleSelect(null);
   };
 
   return (
@@ -61,7 +65,7 @@ const PaymentInfo = () => {
                   size={20}
                   fill="black"
                   className="cursor-pointer"
-                  onClick={() => setSelectedRekening(null)}
+                  onClick={() => handleSelect(null)}
                 />
                 <DeleteIcon className="cursor-pointer" onClick={handleDelete} />
               </div>
