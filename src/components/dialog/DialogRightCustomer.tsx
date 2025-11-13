@@ -19,11 +19,13 @@ import {
 import { Button } from "../ui/button";
 import { XIcon } from "lucide-react";
 import { useCustomerDialogStore } from "@/stores/customerDialogStore";
+import { useValidasiFormDialogStore } from "@/stores/validasiFormDialogStore";
 import { Textarea } from "../ui/textarea";
 
 const DialogRightCustomer = () => {
   const { isCustomerDialogOpen, closeCustomerDialog } =
     useCustomerDialogStore();
+  const { openValidasiFormDialog } = useValidasiFormDialogStore();
 
   return (
     <DialogRight open={isCustomerDialogOpen} onOpenChange={closeCustomerDialog}>
@@ -136,8 +138,11 @@ const DialogRightCustomer = () => {
             </div>
           </div>
           <DialogRightFooter>
-            <Button onClick={closeCustomerDialog}>Simpan</Button>
-            <Button variant="outline" onClick={closeCustomerDialog}>
+            <Button>Simpan</Button>
+            <Button
+              variant="outline"
+              onClick={() => openValidasiFormDialog(closeCustomerDialog)}
+            >
               Batal
             </Button>
           </DialogRightFooter>

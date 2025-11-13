@@ -1,6 +1,7 @@
 "use client";
 
 import DialogRightCustomer from "@/components/dialog/DialogRightCustomer";
+import DialogValidasiForm from "@/components/dialog/DialogValidasiForm";
 import PageHeader from "@/components/layout/PageHeader";
 import { columnsCustomer } from "@/components/tables/customer/Columns";
 import { DataTable } from "@/components/tables/customer/DataTable";
@@ -37,6 +38,7 @@ const CustomerPage = () => {
       </Card>
 
       <DialogRightCustomer />
+      <DialogValidasiForm />
     </div>
   );
 };

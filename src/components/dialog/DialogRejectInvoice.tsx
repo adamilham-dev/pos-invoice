@@ -7,28 +7,37 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { FileText, X, XIcon } from "lucide-react";
-import { useState } from "react";
 import { DropdownMenuItem } from "../ui/dropdown-menu";
 import { useOpenPdf } from "@/hooks/use-openPdf";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
+import { useValidasiFormDialogStore } from "@/stores/validasiFormDialogStore";
+import { useRejectInvoiceDialogStore } from "@/stores/rejectInvoiceDialogStore";
 
 const DialogRejectInvoice = () => {
-  const [openDialog, setOpenDialog] = useState(false);
+  const {
+    openRejectInvoiceDialog,
+    isRejectInvoiceDialogOpen,
+    closeRejectInvoiceDialog,
+  } = useRejectInvoiceDialogStore();
+  const { openValidasiFormDialog } = useValidasiFormDialogStore();
 
   return (
     <>
       <DropdownMenuItem
         onSelect={(e) => e.preventDefault()}
-        onClick={() => setOpenDialog(true)}
+        onClick={openRejectInvoiceDialog}
         className="cursor-pointer"
       >
         <X />
         Tolak Invoice
       </DropdownMenuItem>
 
-      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+      <Dialog
+        open={isRejectInvoiceDialogOpen}
+        onOpenChange={closeRejectInvoiceDialog}
+      >
         <DialogContent className="max-w-lg flex flex-col gap-10">
           <DialogHeader className="flex-row items-center justify-between">
             <DialogTitle>Tolak Invoice</DialogTitle>
@@ -96,7 +105,10 @@ const DialogRejectInvoice = () => {
 
             <div className="flex flex-col w-full gap-3">
               <Button>Tolak invoice</Button>
-              <Button onClick={() => setOpenDialog(false)} variant="outline">
+              <Button
+                onClick={() => openValidasiFormDialog(closeRejectInvoiceDialog)}
+                variant="outline"
+              >
                 Batal
               </Button>
             </div>

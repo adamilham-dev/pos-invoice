@@ -20,7 +20,7 @@ import {
 import { Pagination } from "@/components/Pagination";
 import { TableToolbarCustomer } from "./TableToolbar";
 import { useState } from "react";
-import Image from "next/image";
+import { EmptyIcon } from "@/components/icon/EmptyIcon";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -91,15 +91,7 @@ export function DataTable<TData, TValue>({
                 colSpan={columns.length}
                 className="h-[300px] w-full text-center"
               >
-                <div className="size-20 mx-auto">
-                  <Image
-                    src={"/assets/empty-data.png"}
-                    alt="empty data"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                  />
-                </div>
+                <EmptyIcon />
                 <p className="body-small-medium">Belum ada customer</p>
               </TableCell>
             </TableRow>

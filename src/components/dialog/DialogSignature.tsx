@@ -1,5 +1,4 @@
 import { Button } from "../ui/button";
-import Image from "next/image";
 import {
   Dialog,
   DialogClose,
@@ -7,12 +6,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
-import { Trash, XIcon } from "lucide-react";
+import { XIcon } from "lucide-react";
 import { Checkbox } from "../ui/checkbox";
 import { Label } from "../ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import { Card, CardContent } from "../ui/card";
 import { useSignatureDialogStore } from "../../stores/signatueDialog";
+import { DeleteIcon } from "../icon/DeleteIcon";
+import { SignatureIcon } from "../icon/Siganture";
 
 const DialogSignature = () => {
   const { isSignatureDialogOpen, closeSignatureDialog } =
@@ -31,15 +32,7 @@ const DialogSignature = () => {
         </DialogHeader>
 
         <div className="space-y-6 p-6 flex flex-col items-center justify-center">
-          <div className="w-20 h-20">
-            <Image
-              src={"/assets/signature.png"}
-              alt="signature icon"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
-          </div>
+          <SignatureIcon />
           <div className="flex flex-col gap-1 text-center">
             <p className="heading-6 text-neutral-100">
               Tambahkan Tanda Tangan Digital
@@ -58,15 +51,8 @@ const DialogSignature = () => {
             <TabsContent value="image">
               <Card className="relative w-full h-40 py-0">
                 <CardContent className="flex items-center justify-center h-full">
-                  <Image
-                    src={"/assets/signature.png"}
-                    alt="signature"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    className="size-32 mx-auto"
-                  />
-                  <Trash size={16} className="absolute top-5 right-5" />
+                  <SignatureIcon />
+                  <DeleteIcon className="absolute top-5 right-5 cursor-pointer" />
                 </CardContent>
               </Card>
             </TabsContent>

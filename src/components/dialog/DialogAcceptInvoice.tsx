@@ -8,7 +8,6 @@ import {
 import { Button } from "../ui/button";
 import { CircleCheck, Eye, EyeOff, TriangleAlert, XIcon } from "lucide-react";
 import { DropdownMenuItem } from "../ui/dropdown-menu";
-import Image from "next/image";
 import {
   InputGroup,
   InputGroupAddon,
@@ -18,6 +17,9 @@ import { useAccepetInvoiceDialogStore } from "@/stores/acceptInvoiceDialogStore"
 import { useSignatureDialogStore } from "@/stores/signatueDialog";
 import DialogSignature from "@/components/dialog/DialogSignature";
 import { useState } from "react";
+import { useValidasiFormDialogStore } from "@/stores/validasiFormDialogStore";
+import DialogValidasiForm from "./DialogValidasiForm";
+import { VerifPwIcon } from "../icon/VerifPw";
 
 const DialogAcceptInvoice = () => {
   const {
@@ -27,6 +29,7 @@ const DialogAcceptInvoice = () => {
   } = useAccepetInvoiceDialogStore();
   const { openSignatureDialog } = useSignatureDialogStore();
   const [showPassword, setShowPassword] = useState(false);
+  const { openValidasiFormDialog } = useValidasiFormDialogStore();
 
   return (
     <>
@@ -54,15 +57,7 @@ const DialogAcceptInvoice = () => {
           </DialogHeader>
 
           <div className="space-y-6 p-6 flex flex-col items-center">
-            <div className="w-20 h-20">
-              <Image
-                src={"/assets/verif-pw.png"}
-                alt="verif pw icon"
-                width={0}
-                height={0}
-                sizes="100vw"
-              />
-            </div>
+            <VerifPwIcon />
             <div className="flex flex-col items-center text-center gap-1">
               <p className="heading-6 text-neutral-100">Verifikasi Password</p>
               <p className="body-small-reguler text-neutral-80">
@@ -96,7 +91,12 @@ const DialogAcceptInvoice = () => {
             </div>
             <div className="flex flex-col w-full gap-3">
               <Button onClick={openSignatureDialog}>Setujui invoice</Button>
-              <Button onClick={openSignatureDialog} variant="outline">
+              <Button
+                onClick={() =>
+                  openValidasiFormDialog(closeAccepetInvoiceDialog)
+                }
+                variant="outline"
+              >
                 Batal
               </Button>
             </div>
@@ -105,6 +105,7 @@ const DialogAcceptInvoice = () => {
       </Dialog>
 
       <DialogSignature />
+      <DialogValidasiForm />
     </>
   );
 };

@@ -19,9 +19,11 @@ import {
 import { Button } from "../ui/button";
 import { XIcon } from "lucide-react";
 import { useServiceDialogStore } from "@/stores/serviceDialogStore";
+import { useValidasiFormDialogStore } from "@/stores/validasiFormDialogStore";
 
 const DialogRightService = () => {
   const { isServiceDialogOpen, closeServiceDialog } = useServiceDialogStore();
+  const { openValidasiFormDialog } = useValidasiFormDialogStore();
 
   return (
     <DialogRight open={isServiceDialogOpen} onOpenChange={closeServiceDialog}>
@@ -121,8 +123,11 @@ const DialogRightService = () => {
             </div>
           </div>
           <DialogRightFooter>
-            <Button onClick={closeServiceDialog}>Tambah Layanan</Button>
-            <Button variant="outline" onClick={closeServiceDialog}>
+            <Button>Tambah Layanan</Button>
+            <Button
+              variant="outline"
+              onClick={() => openValidasiFormDialog(closeServiceDialog)}
+            >
               Batal
             </Button>
           </DialogRightFooter>

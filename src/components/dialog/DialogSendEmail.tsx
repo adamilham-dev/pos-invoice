@@ -7,25 +7,28 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "../ui/button";
 import { AtSign, FileText, XIcon } from "lucide-react";
-import { useState } from "react";
 import { DropdownMenuItem } from "../ui/dropdown-menu";
 import { useOpenPdf } from "@/hooks/use-openPdf";
+import { useSendEmailDialogStore } from "@/stores/sendEmailDialogStore";
+import { useValidasiFormDialogStore } from "@/stores/validasiFormDialogStore";
 
 const DialogSendEmail = () => {
-  const [openDialog, setOpenDialog] = useState(false);
+  const { openSendEmailDialog, closeSendEmailDialog, isSendEmailDialogOpen } =
+    useSendEmailDialogStore();
+  const { openValidasiFormDialog } = useValidasiFormDialogStore();
 
   return (
     <>
       <DropdownMenuItem
         onSelect={(e) => e.preventDefault()}
-        onClick={() => setOpenDialog(true)}
+        onClick={openSendEmailDialog}
         className="cursor-pointer"
       >
         <AtSign />
         Kirim ke email
       </DropdownMenuItem>
 
-      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+      <Dialog open={isSendEmailDialogOpen} onOpenChange={closeSendEmailDialog}>
         <DialogContent className="max-w-lg flex flex-col gap-10">
           <DialogHeader className="flex-row items-center justify-between">
             <DialogTitle>Kirim invoice ke email?</DialogTitle>
@@ -63,7 +66,10 @@ const DialogSendEmail = () => {
 
             <div className="flex flex-col w-full gap-3">
               <Button>Kirim</Button>
-              <Button onClick={() => setOpenDialog(false)} variant="outline">
+              <Button
+                onClick={() => openValidasiFormDialog(closeSendEmailDialog)}
+                variant="outline"
+              >
                 Batal
               </Button>
             </div>

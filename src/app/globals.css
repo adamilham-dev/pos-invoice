@@ -241,7 +241,7 @@
     @apply text-base lg:text-lg leading-[26px] font-bold;
   }
   .body-small-reguler {
-    @apply text-sm lg:text-base leading-6;
+    @apply text-sm lg:text-base leading-6 font-normal;
   }
   .body-small-medium {
     @apply text-sm lg:text-base leading-6 font-medium;

@@ -1,6 +1,8 @@
 import { DeleteIcon } from "@/components/icon/DeleteIcon";
+import { SignatureIcon } from "@/components/icon/Siganture";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { CheckCircle2, Pen } from "lucide-react";
 
 const page = () => {
@@ -8,7 +10,7 @@ const page = () => {
     <div className="flex flex-col gap-5 p-4 sm:p-6 lg:pl-9 lg:pr-10 lg:py-6">
       <p>Profile</p>
       <Card className="p-4 sm:p-6 md:py-10">
-        <div className="w-full md:w-2/3 mx-auto space-y-6">
+        <div className="w-full md:w-4/5 mx-auto space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div className="w-[100px] h-[100px] heading-3 text-white rounded-full bg-neutral-80 flex items-center justify-center">
               AN
@@ -54,9 +56,11 @@ const page = () => {
               <p className="body-small-semibold text-neutral-100 sm:col-span-1">
                 Email
               </p>
-              <p className="body-small-reguler text-neutral-80 sm:col-span-2">
-                ajeng.narulita@posindonesia.co.id
-              </p>
+              <Input
+                type="email"
+                placeholder="ajeng.narulita@posindonesia.co.id"
+                className="sm:col-span-2"
+              />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-2 sm:gap-y-0">
               <p className="body-small-semibold text-neutral-100 sm:col-span-1">
@@ -68,7 +72,9 @@ const page = () => {
                     <CheckCircle2 fill="#52bd94" color="white" />
                     Terverifikasi
                   </div>
-                  <div className="w-[100px] h-[100px] rounded-2xl border shadow"></div>
+                  <div className="w-[100px] h-[100px] flex items-center justify-center rounded-2xl border shadow">
+                    <SignatureIcon />
+                  </div>
                 </div>
                 <div className="flex items-center gap-2 w-full sm:w-auto justify-end sm:justify-start">
                   <Pen size={20} fill="black" />

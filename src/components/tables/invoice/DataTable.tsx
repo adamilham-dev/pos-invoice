@@ -20,10 +20,10 @@ import {
 import { Pagination } from "@/components/Pagination";
 import { TableToolbarInvoice } from "./TableToolbar";
 import { useState } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
+import { EmptyIcon } from "@/components/icon/EmptyIcon";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -93,15 +93,7 @@ export function DataTable<TData, TValue>({
               <TableCell colSpan={columns.length} className="h-[300px] w-full">
                 <div className="flex flex-col gap-4 items-center justify-center">
                   <div className="">
-                    <div className="size-20 mx-auto">
-                      <Image
-                        src={"/assets/empty-data.png"}
-                        alt="empty data"
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                      />
-                    </div>
+                    <EmptyIcon />
                     <p className="body-small-medium">
                       Belum ada invoice yang dibuat
                     </p>

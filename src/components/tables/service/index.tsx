@@ -7,13 +7,13 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { formatIDR } from "@/lib/formatIDR";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Pen, PlusCircle } from "lucide-react";
 import { TypeServices } from "@/types/services";
 import DialogRightService from "@/components/dialog/DialogRightService";
 import { useServiceDialogStore } from "@/stores/serviceDialogStore";
 import { DeleteIcon } from "@/components/icon/DeleteIcon";
+import { EmptyIcon } from "@/components/icon/EmptyIcon";
 
 interface ITableServices {
   handleDelete: (layanan: string) => void;
@@ -69,15 +69,7 @@ const TableServices = ({ handleDelete, data }: ITableServices) => {
             <TableRow>
               <TableCell colSpan={6} className="h-[200px] w-full">
                 <div className="flex flex-col items-center justify-center">
-                  <div className="size-20 mx-auto">
-                    <Image
-                      src={"/assets/empty-data.png"}
-                      alt="empty data"
-                      width={0}
-                      height={0}
-                      sizes="100vw"
-                    />
-                  </div>
+                  <EmptyIcon />
                   <p className="body-small-medium">
                     Tambahkan layanan ke dalam list
                   </p>

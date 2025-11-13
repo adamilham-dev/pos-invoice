@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   DialogRight,
   DialogRightClose,
@@ -13,22 +12,32 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { DropdownMenuItem } from "../ui/dropdown-menu";
 import { Checkbox } from "../ui/checkbox";
+import { useRecordPaymentDialogStore } from "@/stores/RecordPaymentDialogStore";
+import { useValidasiFormDialogStore } from "@/stores/validasiFormDialogStore";
 
 const DialogRightRecordPayment = () => {
-  const [openDialog, setOpenDialog] = useState(false);
+  const {
+    closeRecordPaymentDialog,
+    isRecordPaymentDialogOpen,
+    openRecordPaymentDialog,
+  } = useRecordPaymentDialogStore();
+  const { openValidasiFormDialog } = useValidasiFormDialogStore();
 
   return (
     <>
       <DropdownMenuItem
         onSelect={(e) => e.preventDefault()}
-        onClick={() => setOpenDialog(true)}
+        onClick={openRecordPaymentDialog}
         className="cursor-pointer"
       >
         <Banknote />
         Catat Pembayaran
       </DropdownMenuItem>
 
-      <DialogRight open={openDialog} onOpenChange={setOpenDialog}>
+      <DialogRight
+        open={isRecordPaymentDialogOpen}
+        onOpenChange={closeRecordPaymentDialog}
+      >
         <DialogRightContent className="max-w-lg">
           <DialogRightHeader className="flex-row items-center justify-between">
             <DialogRightTitle>Catat Pembayaran</DialogRightTitle>
@@ -57,7 +66,10 @@ const DialogRightRecordPayment = () => {
             </div>
             <DialogRightFooter>
               <Button>Simpan</Button>
-              <Button variant="outline" onClick={() => setOpenDialog(false)}>
+              <Button
+                variant="outline"
+                onClick={() => openValidasiFormDialog(closeRecordPaymentDialog)}
+              >
                 Batal
               </Button>
             </DialogRightFooter>
