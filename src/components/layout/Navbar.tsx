@@ -4,8 +4,8 @@ import { Button } from "../ui/button";
 
 const Navbar = ({ onMenuClick }: { onMenuClick: () => void }) => {
   return (
-    <div className="w-full flex items-center justify-between bg-primary px-4 py-2">
-      <div className="flex items-center gap-3 md:divide-x">
+    <div className="w-full flex items-center justify-between bg-primary px-4 h-20">
+      <div className="flex items-center gap-3">
         <Button
           onClick={onMenuClick}
           variant={"ghost"}
@@ -13,7 +13,7 @@ const Navbar = ({ onMenuClick }: { onMenuClick: () => void }) => {
         >
           <Menu />
         </Button>
-        <div className="w-[75px] h-auto pr-3">
+        <div className="w-[75px] h-auto">
           <Image
             src={"/logo-white.png"}
             alt="logo"
@@ -22,7 +22,10 @@ const Navbar = ({ onMenuClick }: { onMenuClick: () => void }) => {
             sizes="100vw"
           />
         </div>
-        <p className="heading-5 text-neutral-10 hidden sm:block">PosInvoice</p>
+        {/* border */}
+        <p className="heading-6 text-neutral-10 hidden border-l pl-3 sm:block">
+          PosInvoice
+        </p>
       </div>
       <div className="flex items-center gap-4 text-neutral-10">
         <Bell fill="white" />

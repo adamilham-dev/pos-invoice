@@ -26,12 +26,13 @@ interface ITableToolbar<TData> {
 
 export function TableToolbarInvoice<TData>({ table }: ITableToolbar<TData>) {
   return (
-    <div className="flex items-center gap-4 p-4 overflow-x-auto">
-      <InputGroup className="min-w-52 md:w-full">
+    <div className="flex items-center gap-4 px-4 h-[72] overflow-x-auto">
+      <InputGroup>
         <InputGroupInput
           placeholder="Cari berdasarkan transaksi, customer, no. invoice..."
           value={(table.getState().globalFilter as string) ?? ""}
           onChange={(e) => table.setGlobalFilter(e.target.value)}
+          className="placeholder:text-sm placeholder:lg:text-base"
         />
         <InputGroupAddon>
           <SearchIcon />
@@ -52,15 +53,15 @@ export function TableToolbarInvoice<TData>({ table }: ITableToolbar<TData>) {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Button variant={"outline"}>
+      <Button className="w-[117px]" variant={"outline"}>
         <SlidersHorizontal />
         Filter
       </Button>
-      <Button variant={"outline"}>
+      <Button className="w-[117px]" variant={"outline"}>
         <ArrowUpDown />
         Sort
       </Button>
-      <Button variant={"outline"}>
+      <Button className="w-[117px]" variant={"outline"}>
         <Download />
         Export
       </Button>

@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
 import { useState } from "react";
 import clsx from "clsx";
+import "@/app/globals.css";
 
 export default function DashboardLayout({
   children,

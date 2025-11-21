@@ -18,7 +18,7 @@ const mainMenu: MenuItem[] = [
 ];
 
 const secondaryMenu: MenuItem[] = [
-  { label: "Settings", icon: Settings, href: "/profile" },
+  { label: "Pengaturan", icon: Settings, href: "/profile" },
   { label: "Keluar", icon: LogOut, href: "/logout" },
 ];
 
@@ -55,8 +55,8 @@ const Sidebar = () => {
 
   return (
     <div className="my-5 flex flex-col gap-6">
-      <div className="flex flex-col gap-2">{renderMenu(mainMenu)}</div>
-      <div className="flex flex-col gap-2">{renderMenu(secondaryMenu)}</div>
+      <div className="flex flex-col">{renderMenu(mainMenu)}</div>
+      <div className="flex flex-col">{renderMenu(secondaryMenu)}</div>
     </div>
   );
 };

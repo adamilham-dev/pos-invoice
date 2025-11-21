@@ -53,12 +53,12 @@ export function DataTable<TData, TValue>({
     <>
       <TableToolbarInvoice table={table} />
       <Table>
-        <TableHeader>
+        <TableHeader className="h-12">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className="body-small-medium">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -81,7 +81,7 @@ export function DataTable<TData, TValue>({
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
                     key={`${row.id}-${cell.id}`}
-                    className="body-small-reguler"
+                    className="body-small-reguler h-[72px]"
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>

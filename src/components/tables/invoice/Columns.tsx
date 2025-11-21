@@ -25,7 +25,7 @@ import DialogRightRecordPayment from "@/components/dialog/DialogRightRecordPayme
 export const columnsInvoice: ColumnDef<TypeInvoice>[] = [
   {
     accessorKey: "invoice",
-    header: "Invoice",
+    header: "No. Invoice",
     filterFn: "includesString",
   },
   {

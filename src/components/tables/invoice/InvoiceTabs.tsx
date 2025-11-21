@@ -59,7 +59,7 @@ export default function InvoiceTabs({
     <div className="flex items-center px-4 border-b border-gray-200 h-16">
       <div
         ref={scrollRef}
-        className="flex overflow-x-auto scrollbar-none scroll-smooth"
+        className="flex gap-4 overflow-x-auto scrollbar-none scroll-smooth h-full"
         style={{ scrollSnapType: "x mandatory", scrollbarWidth: "none" }}
       >
         {tabs.map(({ key, label }) => (
@@ -67,7 +67,7 @@ export default function InvoiceTabs({
             key={key}
             variant={"ghost"}
             onClick={() => handleTabClick(key)}
-            className={`body-small-medium whitespace-nowrap border-b-2 rounded-none
+            className={`body-small-medium whitespace-nowrap border-b-[3px] rounded-none
               ${
                 activeTab === key
                   ? "border-primary-pressed text-primary-pressed font-semibold"
@@ -82,7 +82,7 @@ export default function InvoiceTabs({
         ))}
       </div>
 
-      <div className="flex items-center border-r border-neutral-30 h-full">
+      <div className="flex gap-5 items-center border-r border-neutral-30 h-full mr-5">
         <Button
           onClick={() => scrollByOffset(-150)}
           aria-label="Previous Tabs"
@@ -102,8 +102,8 @@ export default function InvoiceTabs({
       </div>
 
       <Select>
-        <SelectTrigger className="bg-transparent border-0 shadow-none h-full hover:bg-transparent">
-          <MapPin fill="black" color="white" size={20} />
+        <SelectTrigger className="bg-transparent border-0 shadow-none h-full hover:bg-transparent p-0">
+          <MapPin fill="black" color="white" className="size-7" />
           <SelectValue
             placeholder="KCU Bandung"
             className="body-small-medium"
@@ -112,6 +112,7 @@ export default function InvoiceTabs({
         <SelectContent>
           <SelectGroup>
             <SelectItem value="KCU Jakarta">KCU Jakarta</SelectItem>
+            <SelectItem value="KCU Bandung">KCU Bandung</SelectItem>
             <SelectItem value="KCU Bali">KCU Bali</SelectItem>
           </SelectGroup>
         </SelectContent>

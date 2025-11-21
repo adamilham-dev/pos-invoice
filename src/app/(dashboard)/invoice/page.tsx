@@ -57,7 +57,7 @@ export default function InvoicePage() {
   );
 
   return (
-    <div className="flex flex-col gap-5 p-4 sm:p-6 lg:pl-9 lg:pr-10 lg:py-6">
+    <div className="flex flex-col gap-5 p-4 sm:p-6 lg:pl-9 lg:pr-10 lg:py-10">
       <PageHeader title="Invoice">
         <Button variant={"secondary"}>
           <Settings /> Pengaturan dokumen
@@ -70,19 +70,19 @@ export default function InvoicePage() {
       </PageHeader>
 
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4 md:gap-10">
-        <Card className="gap-2">
-          <CardHeader className="body-small-reguler">
+        <Card className="p-4 gap-0">
+          <CardHeader className="p-0 body-small-reguler">
             Total Nilai Invoice
           </CardHeader>
-          <CardContent className="heading-6">Rp #####</CardContent>
+          <CardContent className="p-0 heading-6">Rp #####</CardContent>
         </Card>
-        <Card className="gap-2">
-          <CardHeader className="body-small-reguler">Closed</CardHeader>
-          <CardContent className="heading-6">Rp #####</CardContent>
+        <Card className="p-4 gap-0">
+          <CardHeader className="p-0 body-small-reguler">Closed</CardHeader>
+          <CardContent className="p-0 heading-6">Rp #####</CardContent>
         </Card>
       </div>
 
-      <Card className="gap-0 py-0">
+      <Card className="gap-0 p-0">
         <InvoiceTabs onTabChange={setFilterStatus} />
         {loading ? (
           <div className="p-4 text-center">Loading...</div>
