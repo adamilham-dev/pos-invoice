@@ -81,7 +81,7 @@ export const columnsInvoice: ColumnDef<TypeInvoice>[] = [
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <Link
-                  href={"/invoice/" + row.original.invoice}
+                  href={"/invoice/" + row.original.id}
                   className="flex items-center gap-2"
                 >
                   <Eye />

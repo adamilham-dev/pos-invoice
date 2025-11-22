@@ -29,19 +29,21 @@ const TableServices = ({ handleDelete, data }: ITableServices) => {
     <>
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="pl-5">Deskripsi Layanan</TableHead>
-            <TableHead>Harga</TableHead>
-            <TableHead>Diskon</TableHead>
-            <TableHead>Pajak</TableHead>
-            <TableHead>Subtotal</TableHead>
+          <TableRow className="h-12">
+            <TableHead className="pl-5 w-[388px] max-[388px]">
+              Deskripsi Layanan
+            </TableHead>
+            <TableHead className="w-[120px] max-w-[120px]">Harga</TableHead>
+            <TableHead className="w-[120px] max-w-[120px]">Diskon</TableHead>
+            <TableHead className="w-[120px] max-w-[120px]">Pajak</TableHead>
+            <TableHead className="w-[120px] max-w-[120px]">Subtotal</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {data?.length ? (
             data?.map((invoice) => (
-              <TableRow key={invoice.layanan}>
+              <TableRow key={invoice.layanan} className="h-[72px]">
                 <TableCell className="pl-5">
                   <div className="flex flex-col">
                     <p>{invoice.layanan}</p>
@@ -55,7 +57,7 @@ const TableServices = ({ handleDelete, data }: ITableServices) => {
                 <TableCell>{invoice.pajak + "%"}</TableCell>
                 <TableCell>{formatIDR(invoice.harga)}</TableCell>
                 <TableCell>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center justify-end pr-5 gap-2">
                     <Pen size={20} fill="black" className="cursor-pointer" />
                     <DeleteIcon
                       className="cursor-pointer transition-colors"

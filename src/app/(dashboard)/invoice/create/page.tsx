@@ -68,49 +68,51 @@ const InvoiceCreate = () => {
   return (
     <div>
       <PageHeader2 title="Buat Invoice" />
-      <InvoiceDetailsForm
-        invoiceData={invoiceData}
-        handleInputChange={handleInputChange}
-      />
+      <div className="mx-20 flex flex-col gap-5">
+        <InvoiceDetailsForm
+          invoiceData={invoiceData}
+          handleInputChange={handleInputChange}
+        />
 
-      <CustomerSearch
-        value={invoiceData.customer}
-        onCustomerSelect={(customerName) =>
-          handleInputChange("customer", customerName)
-        }
-      />
-
-      <Card className="m-6 gap-4 items-start">
-        <p className="body-large-bold px-5">Layanan</p>
-
-        <TableServices data={data ?? []} handleDelete={handleDelete} />
-
-        <Button
-          onClick={openServiceDialog}
-          variant="ghost"
-          className="text-primary mx-3"
-        >
-          <PlusCircle fill="black" color="white" />
-          Tambah layanan
-        </Button>
-      </Card>
-
-      <div className="grid md:grid-cols-2 items-start gap-5 m-6">
-        <PaymentInfo
-          value={invoiceData.rekening}
-          onRekeningChange={(rekening) =>
-            handleInputChange("rekening", rekening)
+        <CustomerSearch
+          value={invoiceData.customer}
+          onCustomerSelect={(customerName) =>
+            handleInputChange("customer", customerName)
           }
         />
-        <InvoiceSummary data={data ?? []} />
-      </div>
 
-      <div className="bg-neutral-10 p-6 flex items-center justify-end gap-4">
-        <Button onClick={() => openValidasiFormDialog()} variant={"outline"}>
-          Batal
-        </Button>
-        <Button variant={"outline"}>Simpan sebagai draft</Button>
-        <Button disabled={isSaveDisabled}>Simpan</Button>
+        <Card className="gap-1 items-start">
+          <p className="body-large-bold px-5 py-3">Layanan</p>
+
+          <TableServices data={data ?? []} handleDelete={handleDelete} />
+
+          <Button
+            onClick={openServiceDialog}
+            variant="ghost"
+            className="text-primary mx-1 mt-2"
+          >
+            <PlusCircle fill="black" color="white" />
+            Tambah layanan
+          </Button>
+        </Card>
+
+        <div className="grid md:grid-cols-2 items-start gap-5">
+          <PaymentInfo
+            value={invoiceData.rekening}
+            onRekeningChange={(rekening) =>
+              handleInputChange("rekening", rekening)
+            }
+          />
+          <InvoiceSummary data={data ?? []} />
+        </div>
+
+        <div className="bg-neutral-10 p-6 flex items-center justify-end gap-4">
+          <Button onClick={() => openValidasiFormDialog()} variant={"outline"}>
+            Batal
+          </Button>
+          <Button variant={"outline"}>Simpan sebagai draft</Button>
+          <Button disabled={isSaveDisabled}>Simpan</Button>
+        </div>
       </div>
 
       {/* dialog */}

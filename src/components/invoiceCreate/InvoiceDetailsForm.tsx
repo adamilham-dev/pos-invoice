@@ -41,7 +41,7 @@ const InvoiceDetailsForm = ({
   }, [invoiceData.tanggalTerbit]);
 
   return (
-    <Card className="m-6 p-6">
+    <Card className="mt-6 p-6">
       <div className="grid md:grid-cols-3 gap-6">
         <div className="flex flex-col gap-2">
           <Label>No. Invoice</Label>
@@ -98,10 +98,10 @@ const InvoiceDetailsForm = ({
           <Input
             type="text"
             disabled
-            value={dueDate ? format(dueDate, "PPP") : ""}
-            placeholder="Otomatis"
+            value={dueDate ? format(dueDate, "dd-MM-yyyy", { locale: id }) : ""}
+            placeholder="dd-mm-yyyy"
           />
-          <p className="caption-large-reguler text-neutral-90">
+          <p className="caption-large-reguler text-neutral-90 mt-1">
             Due date dihitung otomatis 14 hari setelah tanggal terbit.
           </p>
         </div>

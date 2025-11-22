@@ -9,6 +9,7 @@ export type TypeStatusInvoice =
   | "Cancelled";
 
 export type TypeInvoice = {
+  id: string;
   invoice: string;
   totalAmount: string;
   customer: string;

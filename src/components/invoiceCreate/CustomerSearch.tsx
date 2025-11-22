@@ -49,11 +49,11 @@ export default function CustomerSearch({
   };
 
   return (
-    <Card className="m-6 px-5 py-4 flex flex-col gap-4">
+    <Card className="px-5 py-4 flex flex-col gap-4">
       <p className="body-large-bold">Customer</p>
 
       {selectedCustomer ? (
-        <div className="flex flex-row md:items-center justify-between">
+        <div className="flex flex-row md:items-center">
           <div className="flex flex-col gap-1">
             <p className="body-small-reguler text-neutral-100">
               {selectedCustomer.name}
@@ -79,8 +79,8 @@ export default function CustomerSearch({
           </div>
         </div>
       ) : (
-        <div className="flex flex-col md:flex-row items-center gap-2">
-          <div className="relative w-full">
+        <div className="flex flex-col md:flex-row justify-start items-center gap-2">
+          <div className="relative max-w-[632px] w-[632px]">
             <Input
               type="text"
               placeholder="Cari customer existing"
@@ -129,7 +129,7 @@ export default function CustomerSearch({
             className="text-primary whitespace-nowrap"
           >
             <PlusCircle fill="black" color="white" />
-            Tambah customer baru
+            Tambah customer baru ?
           </Button>
         </div>
       )}
