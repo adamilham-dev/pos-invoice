@@ -39,7 +39,7 @@ export function TableToolbarInvoice<TData>({ table }: ITableToolbar<TData>) {
         </InputGroupAddon>
       </InputGroup>
       <Select>
-        <SelectTrigger>
+        <SelectTrigger className="text-neutral-100">
           <SelectValue placeholder="Tahun ini" />
         </SelectTrigger>
         <SelectContent>
