@@ -70,7 +70,7 @@ export default function InvoiceTabs({
             className={`body-small-medium whitespace-nowrap border-b-[3px] rounded-none
               ${
                 activeTab === key
-                  ? "border-primary-pressed text-primary-pressed font-semibold"
+                  ? "border-primary-pressed text-primary-pressed"
                   : "border-transparent text-primary-pressed/80 hover:text-primary-pressed"
               }
               focus:outline-none`}
