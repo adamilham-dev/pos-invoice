@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   logo: {
-    width: 40,
-    height: 40,
+    width: "auto",
+    height: 32,
   },
   headerRight: {
     fontSize: 9,
