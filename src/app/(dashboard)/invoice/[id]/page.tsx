@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 async function getInvoiceById(id: string) {
   const allInvoices = await getDataInvoice();
-  const invoice = allInvoices.find((inv) => inv.invoice === id);
+  const invoice = allInvoices.find((inv) => inv.id === id);
   return invoice;
 }
 

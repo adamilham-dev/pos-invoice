@@ -23,6 +23,7 @@ import SignatureStatusCard from "./SignatureStatusCard";
 import RecentActivity from "./RecentActivity";
 import ServicesTable from "./ServicesTable";
 import { pdf } from "@react-pdf/renderer";
+import { Card } from "../ui/card";
 
 const PDFViewer = dynamic(
   () => import("@react-pdf/renderer").then((mod) => mod.PDFViewer),
@@ -50,7 +51,7 @@ const DetailInvoice = ({ invoice }: IDetailInvoice) => {
       <PageHeader3 title={invoice.invoice} status={invoice.statusInvoice}>
         <Dialog open={showPdf} onOpenChange={setShowPdf}>
           <DialogTrigger asChild>
-            <Button variant={"outline"}>Liat PDF</Button>
+            <Button variant={"outline"}>Lihat PDF</Button>
           </DialogTrigger>
 
           <DialogContent className="max-w-5xl h-[90vh] flex flex-col p-0">
@@ -84,21 +85,28 @@ const DetailInvoice = ({ invoice }: IDetailInvoice) => {
         <Button variant={"outline"}>Ubah</Button>
       </PageHeader3>
 
-      <InvoiceInfoCard />
+      <div className="mx-20 flex flex-col gap-6">
+        <InvoiceInfoCard />
 
-      <CustomerInfoCard />
+        <CustomerInfoCard />
 
-      <ServicesTable />
+        <Card className="px-5 py-0 gap-0">
+          <p className="body-large-bold h-[66px] flex items-center">Layanan</p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-5 px-4 md:px-6">
-        <PaymentDetailsCard />
-        <div className="flex flex-col gap-6">
-          <InvoiceSummaryCard />
-          <SignatureStatusCard />
+          <ServicesTable />
+          <div className="h-[46px]"></div>
+        </Card>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-5">
+          <PaymentDetailsCard />
+          <div className="flex flex-col gap-6">
+            <InvoiceSummaryCard />
+            <SignatureStatusCard />
+          </div>
         </div>
-      </div>
 
-      <RecentActivity />
+        <RecentActivity />
+      </div>
     </div>
   );
 };
