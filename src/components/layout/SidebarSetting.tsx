@@ -30,7 +30,7 @@ const SidebarSetting = () => {
       const content = (
         <div
           className={clsx(
-            "flex items-center gap-3 px-3 h-11 rounded-lg transition-colors",
+            "flex items-center gap-3 px-2 h-11 rounded-lg transition-colors",
             isActive
               ? "bg-neutral-20 text-primary font-medium"
               : "hover:bg-neutral-20"
@@ -58,7 +58,7 @@ const SidebarSetting = () => {
         </Button>
         <p className="heading-6 text-neutral-100">Pengaturan</p>
       </div>
-      <div className="flex flex-col gap-2 bg-neutral-10 h-[70vh] py-5 px-2 rounded-2xl">
+      <div className="flex flex-col bg-neutral-10 h-[70vh] pt-6 px-1 rounded-2xl">
         {renderMenu(menu)}
       </div>
     </div>
