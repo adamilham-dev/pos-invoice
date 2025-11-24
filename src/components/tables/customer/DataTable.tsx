@@ -47,15 +47,17 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <>
-      <TableToolbarCustomer table={table} />
+    <div className="flex flex-col">
+      <div className="flex items-center h-[76px]">
+        <TableToolbarCustomer table={table} />
+      </div>
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className="h-12 px-0">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -78,7 +80,7 @@ export function DataTable<TData, TValue>({
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
                     key={`${row.id}-${cell.id}`}
-                    className="body-small-reguler"
+                    className="body-small-reguler h-[84px] px-0"
                   >
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
@@ -87,18 +89,17 @@ export function DataTable<TData, TValue>({
             ))
           ) : (
             <TableRow>
-              <TableCell
-                colSpan={columns.length}
-                className="h-[300px] w-full text-center"
-              >
-                <EmptyIcon />
-                <p className="body-small-medium">Belum ada customer</p>
+              <TableCell colSpan={columns.length} className="h-[300px] w-full">
+                <div className="flex flex-col w-full items-center justify-center">
+                  <EmptyIcon />
+                  <p className="body-small-medium">Belum ada customer</p>
+                </div>
               </TableCell>
             </TableRow>
           )}
         </TableBody>
       </Table>
       <Pagination table={table} />
-    </>
+    </div>
   );
 }

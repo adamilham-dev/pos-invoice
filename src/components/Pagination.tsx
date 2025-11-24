@@ -22,9 +22,9 @@ export function Pagination<TData>({ table }: PaginationProps<TData>) {
     totalRows === 0 ? 0 : Math.min((pageIndex + 1) * pageSize, totalRows);
 
   return (
-    <div className="flex md:items-center justify-between py-3 px-5 border-t">
-      <div className="flex flex-col w-full gap-2 items-end md:flex-row md:justify-end md:items-center">
-        <div className="flex items-center space-x-2">
+    <div className="flex md:items-center justify-between border-t h-[72px]">
+      <div className="flex flex-col w-full gap-4 items-end md:flex-row md:justify-end md:items-center">
+        <div className="flex items-center gap-4">
           <p className="text-sm text-neutral-90">Baris per halaman</p>
           <Select
             value={`${table.getState().pagination.pageSize}`}
@@ -32,7 +32,7 @@ export function Pagination<TData>({ table }: PaginationProps<TData>) {
               table.setPageSize(Number(value));
             }}
           >
-            <SelectTrigger className="h-8 w-[70px]">
+            <SelectTrigger className="h-10 w-[66px]">
               <SelectValue placeholder={table.getState().pagination.pageSize} />
             </SelectTrigger>
             <SelectContent side="top">
@@ -44,7 +44,7 @@ export function Pagination<TData>({ table }: PaginationProps<TData>) {
             </SelectContent>
           </Select>
         </div>
-        <div className="flex w-auto items-center justify-center text-sm font-medium px-4">
+        <div className="flex w-auto items-center justify-center text-sm font-medium">
           {startRow}-{endRow} dari {totalRows}
         </div>
         <div className="flex items-center">

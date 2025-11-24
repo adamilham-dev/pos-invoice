@@ -9,12 +9,12 @@ import { Pen } from "lucide-react";
 export const columnsCustomer: ColumnDef<TypeCustomer>[] = [
   {
     accessorKey: "name",
-    header: "Customer/Perusahaan",
+    header: () => <p className="w-[262px]">Customer/Perusahaan</p>,
     filterFn: "includesString",
   },
   {
     accessorKey: "noTlp",
-    header: "Informasi Kontak",
+    header: () => <p className="w-[200px]">Informasi Kontak</p>,
     cell: ({ row }) => {
       const noTlp = row.original.noTlp;
       const email = row.original.email;
@@ -31,7 +31,7 @@ export const columnsCustomer: ColumnDef<TypeCustomer>[] = [
     accessorKey: "address",
     header: "Alamat Billing",
     cell: ({ row }) => (
-      <p className="caption-large-reguler w-[272px] text-wrap">
+      <p className="caption-large-reguler w-[272px] pr-3 text-wrap">
         {row.original.address}
       </p>
     ),
@@ -40,7 +40,7 @@ export const columnsCustomer: ColumnDef<TypeCustomer>[] = [
     accessorKey: "notes",
     header: "Notes",
     cell: ({ row }) => (
-      <p className="caption-large-reguler text-neutral-80 w-[220px] text-wrap">
+      <p className="caption-large-reguler text-neutral-80 w-[220px] pr-3 text-wrap">
         {row.original.notes}
       </p>
     ),
